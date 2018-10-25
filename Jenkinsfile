@@ -5,8 +5,9 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-				echo '%BUILD_NUMBER%'
-            }
+				echo env.BUILD_NUMBER
+				bat "echo #define BUILD_COUNTER %BUILD_NUMBER%"
+			}
         }
         stage('Test') {
             steps {
